@@ -71,6 +71,7 @@ void Logger::CardLog(string player[10][6])
 			cardfout << player[i][j];
 			cardfout << ",";
 		}
+	cardfout << endl;//new row
 	
 	
 }
