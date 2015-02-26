@@ -21,6 +21,7 @@ void Logger::init_win()
 	{
 		winfout << "Player ";
 		winfout << i;
+		winfout << " win";
 		if (i != (num_of_player - 1)) winfout << ",";
 	}
 	winfout << endl;
