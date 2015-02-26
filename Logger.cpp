@@ -83,12 +83,32 @@ void Logger::CardLog(string player[10][6])
 int Logger::CardPair(string hand[6], int num_of_card)
 {
 	int pair = 0;
+	int x[14];
+	for (int i = 0; i < 13; i++)
+		x[i] = 0;
+
 	for (int i = 0; i < num_of_card; i++)
 		for (int j = i + 1; j < num_of_card; j++)
 		{
-			if (hand[i][0] == hand[j][0]) 
-				pair++;  //if it is pair (3S and 3D is a pair)
+			if (hand[i][0] == hand[j][0])
+			{
+				string tmp;
+				tmp = hand[i][0];
+				//a = 1
+				//2-10
+				//j q k  = 11 12 13 
+				if (tmp == "A") tmp = "1";
+				if (tmp == "J") tmp = "11";
+				if (tmp == "Q") tmp = "12";
+				if (tmp == "K") tmp = "13";
+				x[stoi(tmp)] ++;  //if it is pair (3S and 3D is a pair)
+			}
 		}
+
+	for (int i = 0; i < 13; i++)
+		if (x[i] == 6) pair = pair + 2; //we have 4 card same number
+		else 
+			if (x[i]) pair++;//have 2 or 3 card same number
 	return pair;
 	
 }

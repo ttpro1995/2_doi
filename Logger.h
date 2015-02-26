@@ -42,6 +42,13 @@ player 1 have 1 pair
 
 */
 
+struct Player
+{
+	string hand[6];
+	int card; //5 or 6
+	bool win; //1 is win
+};
+
 class Logger
 {
 private:
@@ -59,6 +66,9 @@ private:
 	int CardPair(string hand[6], int num_of_card);//player 0 have 6 card, else 5 card
 
 	int num_of_player;
+
+	//merge cardlog and winlog
+
 public:
 	//num_of_player is number of player
 	//log_num is name of log. 
